@@ -1,3 +1,7 @@
+## [1.0.2] - 2020/Oct/06.
+
+* bug fix :.
+
 ## [1.0.1] - 2020/Oct/06.
 
 * bug fix : adding missing exports.
