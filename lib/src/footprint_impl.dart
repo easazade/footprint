@@ -8,11 +8,11 @@ class Footprint {
   static FootprintConfig _config = DefaultFootprintConfig();
   static FootprintPrettifier _prettifier = DefaultFootprintPrettifier();
 
-  set config(FootprintConfig config) {
+  static set config(FootprintConfig config) {
     _config = config;
   }
 
-  set prettifier(FootprintPrettifier prettifier) {
+  static set prettifier(FootprintPrettifier prettifier) {
     _prettifier = prettifier;
   }
 
