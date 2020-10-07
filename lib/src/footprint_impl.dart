@@ -1,4 +1,5 @@
 import 'package:footprint/src/prettifier.dart';
+import 'package:footprint/src/private_service.dart';
 
 import 'footprint_config.dart';
 
@@ -7,6 +8,11 @@ class Footprint {
 
   static FootprintConfig _config = DefaultFootprintConfig();
   static FootprintPrettifier _prettifier = DefaultFootprintPrettifier();
+  static PrivateService _privateService;
+
+  static set privateService(PrivateService service) {
+    _privateService = service;
+  }
 
   static set config(FootprintConfig config) {
     _config = config;
@@ -17,14 +23,27 @@ class Footprint {
   }
 
   static void report(e, stacktrace) {
+    _privateService?.addEntry(e.toString() + '\n' + stacktrace.toString());
     _config.report(e, stacktrace);
   }
 
   static void log(anything) {
-    _config.log(_prettifier.prettifyLog(anything));
+    var prettified = _prettifier.prettifyLog(anything);
+    _privateService?.addEntry(prettified);
+    _config.log(prettified);
   }
 
   static void footprint(anything) {
-    _config.footprint(_prettifier.prettifyFootprint(anything));
+    var prettified = _prettifier.prettifyFootprint(anything);
+    _privateService?.addEntry(prettified);
+    _config.footprint(prettified);
+  }
+
+  static Future uploadReportsToPrivateService() async {
+    if (_privateService != null) {
+      await _privateService.uploadToPrivateService();
+    } else {
+      throw Exception('private service cannot be null. please add a PrivateService to Footprint first');
+    }
   }
 }
