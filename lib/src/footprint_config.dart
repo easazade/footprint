@@ -10,17 +10,17 @@ abstract class FootprintConfig {
 class DefaultFootprintConfig extends FootprintConfig {
   @override
   void report(e, stacktrace) {
-    print(e);
-    print(stacktrace);
+    print(e.toString());
+    print(stacktrace.toString());
   }
 
   @override
   void log(anything) {
-    print(anything);
+    print(anything.toString());
   }
 
   @override
   void footprint(anything) {
-    print(anything);
+    print(anything.toString());
   }
 }

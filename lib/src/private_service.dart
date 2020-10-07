@@ -18,7 +18,7 @@ class PrivateService {
     _cache.forEach((element) {
       content = content + element + '\n' + '##############################################################' + '\n';
     });
-    reportFile.writeAsString(content);
+    await reportFile.writeAsString(content);
     await _uploadData(reportFile);
   }
 

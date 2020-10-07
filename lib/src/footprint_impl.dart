@@ -28,13 +28,13 @@ class Footprint {
   }
 
   static void log(anything) {
-    var prettified = _prettifier.prettifyLog(anything);
+    var prettified = _prettifier.prettifyLog(anything.toString());
     _privateService?.addEntry(prettified);
     _config.log(prettified);
   }
 
   static void footprint(anything) {
-    var prettified = _prettifier.prettifyFootprint(anything);
+    var prettified = _prettifier.prettifyFootprint(anything.toString());
     _privateService?.addEntry(prettified);
     _config.footprint(prettified);
   }

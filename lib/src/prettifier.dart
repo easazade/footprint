@@ -7,11 +7,11 @@ abstract class FootprintPrettifier {
 class DefaultFootprintPrettifier extends FootprintPrettifier {
   @override
   dynamic prettifyFootprint(anything) {
-    return anything;
+    return anything.toString();
   }
 
   @override
   dynamic prettifyLog(anything) {
-    return anything;
+    return anything.toString();
   }
 }
