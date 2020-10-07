@@ -1,3 +1,8 @@
+## [1.1.3] - 2020/Oct/07.
+
+* bug fix : adding missing exports
+
+
 ## [1.1.2] - 2020/Oct/07.
 
 * adding feature -> Private Service
