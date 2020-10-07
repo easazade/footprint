@@ -1,4 +1,4 @@
-## [1.0.2] - 2020/Oct/07.
+## [1.1.2] - 2020/Oct/07.
 
 * adding feature -> Private Service
 
