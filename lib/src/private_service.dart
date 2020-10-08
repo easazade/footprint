@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:footprint/footprint.dart';
 
 class PrivateService {
   List<String> _cache = [];
@@ -15,16 +14,16 @@ class PrivateService {
     var reportFileName = 'report' + '${t.hour}-${t.minute}-${t.second}' + '.txt';
     var reportFile = await File(_saveDir.path + Platform.pathSeparator + reportFileName).create(recursive: true);
     String content = '';
-    _cache.forEach((element) {
-      content = content + element + '\n' + '##############################################################' + '\n';
-    });
+    for(var i=0;i<_cache.length;i++){
+      var element = _cache[i];
+      content = content + '############################### $i ###############################' + '\n' + element + '\n';
+    }
     await reportFile.writeAsString(content);
     await _uploadData(reportFile);
   }
 
   void addEntry(String entry) {
     if (_cache.length >= maxLogsAndReports) {
-      Footprint.log('!! -> Footprint private service cache size is FULL removing old entries');
       _cache.removeAt(0);
     }
     _cache.add(DateTime.now().toString() + '\n' + entry);

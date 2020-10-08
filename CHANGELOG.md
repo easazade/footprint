@@ -1,3 +1,11 @@
+## [1.1.6] - 2020/Oct/08.
+
+* bug fix : adding numbers for each entry of PrivateService report
+
+## [1.1.5] - 2020/Oct/07.
+
+* bug fix : StackOverflow error in PrivateService
+
 ## [1.1.4] - 2020/Oct/07.
 
 * bug fix :.
